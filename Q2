@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void findMinMax(const int A[], int N, int& minVal, int& maxVal) {
+  
+  if (N == 0) {
+    cout << "Error: Array is empty." << endl;
+    return;
+  }
+
+ 
+  minVal = maxVal = A[0];
+
+  
+  for (int i = 1; i < N; ++i) {
+    if (A[i] < minVal) {
+      minVal = A[i];
+    } else if (A[i] > maxVal) {
+      maxVal = A[i];
+    }
+  }
+}
+
+int main() {
+  int A[] = {3, 2, 1, 56, 10000, 167};
+  int N = sizeof(A) / sizeof(A[0]);
+
+  int minVal, maxVal;
+  findMinMax(A, N, minVal, maxVal);
+
+  cout << "Minimum element: " << minVal << endl;
+  cout << "Maximum element: " << maxVal << endl;
+
+  return 0;
+}
